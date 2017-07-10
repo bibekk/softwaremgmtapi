@@ -22,7 +22,7 @@ var Software ={
       return db.query("select max(software_id) as maxid from software.tbl_software",callback);
   },
   getSoftwareCategory:function(callback){
-      return db.query("select * from software.tbl_software_type",callback);
+      return db.query("SELECT tbl_software_typeid,tbl_software_type.software_type,count(tbl_software.software_type) as total FROM software.tbl_software join software.tbl_software_type on tbl_software.software_type =tbl_software_type.tbl_software_typeid  group by software_type",callback);
   },
   updateSoftwareCategory: function(id,Software,callback){ //console.log(id,Software.Title,Software.Status);
       return db.query("update software.tbl_software_type set software_type=? where tbl_software_typeid =?",[Software.software_type,id],callback);
