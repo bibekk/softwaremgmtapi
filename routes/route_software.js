@@ -105,7 +105,7 @@ router.put('/category/:id',function(req,res,next){ //console.log(req.body);
 
 
 router.put('/:id',function(req,res,next){ //console.log(req.body);
-   Software.updateSoftware(req.params.id,req.body,function(err,rows){
+   Software.updateSoftwareByID(req.params.id,req.body,function(err,rows){
       if(err){
           res.json(err);
       }else{
