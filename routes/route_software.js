@@ -82,7 +82,7 @@ router.get('/',function(req,res,next){
        }); 
 });
 
-router.post('/',function(req,res,next){ console.log(req.body);
+router.post('/',function(req,res,next){ //console.log(req.body);
    Software.addSoftware(req.body,function(err,count){
       if(err){
           res.json(err);
